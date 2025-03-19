@@ -181,7 +181,7 @@ class Gpt2(tf.keras.Model):
 
 			return self.train_writer, self.test_writer
 
-	@function(reduce_retracing=True)
+	@function(input_signature=train_step_signature)
 	def _train_step(self, inputs, targets):
 		with tf.GradientTape() as tape:
 			predictions, _ = self(inputs, training=True)
