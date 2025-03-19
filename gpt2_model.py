@@ -181,7 +181,7 @@ class Gpt2(tf.keras.Model):
 
 			return self.train_writer, self.test_writer
 
-	@function(input_signature=[tf.TensorSpec(shape=(8, None), dtype=tf.int32), tf.TensorSpec(shape=(8, None), dtype=tf.int32)])
+	@function(input_signature=[tf.TensorSpec(shape=(None, None), dtype=tf.int32), tf.TensorSpec(shape=(None, None), dtype=tf.int32)])
 	def _train_step(self, inputs, targets):
 		with tf.GradientTape() as tape:
 			predictions, _ = self(inputs, training=True)
